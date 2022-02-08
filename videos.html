@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <title>Pedalton Database - Videos</title>
+    </head>
+    <body>
+        <nav>
+            <a href="./index.html">Pedalton</a>
+
+            <ul>
+                <li>
+                    <a href="./index.html">Home</a>
+                </li>
+                <li>
+                    <a href="./users.html">Users</a>
+                </li>
+                <li>
+                    <a href="./instructors.html">Instructors</a>
+                </li>
+                <li>
+                    <a href="./memberships.html">Memberships</a>
+                </li>
+                <li>
+                    <a href="./videos.html">Videos</a>
+                </li>
+                <li>
+                    <a href="./performs.html">Performs</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div>
+            <h1>Videos</h1>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>videoID</th>
+                        <th>instructorID</th>
+                        <th>name</th>
+                        <th>description</th>
+                        <th>type</th>
+                        <th>difficulty</th>
+                        <th>duration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>1</th>
+                        <td>2</td>
+                        <td>Advanced HIIT Ride</td>
+                        <td>
+                            Interval training at the highest level for advanced
+                            riders.
+                        </td>
+                        <td>High Intensity Interval</td>
+                        <td>Advanced</td>
+                        <td>45</td>
+                    </tr>
+                    <tr>
+                        <th>2</th>
+                        <td>1</td>
+                        <td>Rolling Hills Ride</td>
+                        <td>
+                            A scenic ride through the rolling hills for a
+                            beginner.
+                        </td>
+                        <td>Scenic Ride</td>
+                        <td>Beginner</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <th>3</th>
+                        <td>NULL</td>
+                        <td>Strength Builder Ride</td>
+                        <td>
+                            An endurance strength builder for intermediate
+                            riders.
+                        </td>
+                        <td>Endurance Cardio</td>
+                        <td>Intermediate</td>
+                        <td>30</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <br /><br />
+
+            <form action="">
+                <h4>Add New Entry</h4>
+
+                <label for="instructorID">Instructor ID</label>
+                <input type="number" id="instructorID" step="1" min="1" /><br />
+
+                <label for="name">Name</label>
+                <input type="text" id="name" /><br />
+
+                <label for="description">Description</label>
+                <input type="text" id="description" /><br />
+
+                <label for="type">Type</label>
+                <input type="text" id="type" /><br />
+
+                <label for="difficulty">Difficulty</label>
+                <input type="text" id="difficulty" /><br />
+
+                <label for="duration">Duration</label>
+                <input type="text" id="duration" /><br />
+
+                <label for="duration">Duration</label>
+                <input type="number" id="duration" step="1" min="1" /><br />
+
+                <button>Submit</button>
+            </form>
+        </div>
+    </body>
+</html>
