@@ -1,0 +1,27 @@
+{
+  "name": "Bobby-Tables-CS-340",
+  "version": "1.0.0",
+  "description": "CS 340 Database Project",
+  "main": "index.js",
+  "scripts": {
+    "devStart": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shenalexw/Bobby_Tables_CS_340.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shenalexw/Bobby_Tables_CS_340/issues"
+  },
+  "homepage": "https://github.com/shenalexw/Bobby_Tables_CS_340#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
