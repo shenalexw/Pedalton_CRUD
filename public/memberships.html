@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <title>Pedalton Database - Memberships</title>
+    </head>
+    <body>
+        <nav>
+            <a href="./index.html">Pedalton</a>
+
+            <ul>
+                <li>
+                    <a href="./index.html">Home</a>
+                </li>
+                <li>
+                    <a href="./users.html">Users</a>
+                </li>
+                <li>
+                    <a href="./instructors.html">Instructors</a>
+                </li>
+                <li>
+                    <a href="./memberships.html">Memberships</a>
+                </li>
+                <li>
+                    <a href="./videos.html">Videos</a>
+                </li>
+                <li>
+                    <a href="./performs.html">Performs</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div>
+            <h1>Memberships</h1>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>membershipID</th>
+                        <th>userID</th>
+                        <th>fee</th>
+                        <th>expiration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>1</th>
+                        <td>2</td>
+                        <td>29</td>
+                        <td>11/08/2021</td>
+                    </tr>
+                    <tr>
+                        <th>2</th>
+                        <td>1</td>
+                        <td>29</td>
+                        <td>11/05/2021</td>
+                    </tr>
+                    <tr>
+                        <th>3</th>
+                        <td>3</td>
+                        <td>29</td>
+                        <td>11/09/2021</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <br /><br />
+
+            <form action="">
+                <h4>Add New Entry</h4>
+
+                <label for="userID">User ID</label>
+                <input type="number" id="userID" step="1" min="1" /><br />
+
+                <label for="Fee">Fee</label>
+                <input type="number" id="Fee" min="0" /><br />
+
+                <label for="Expiration">Expiration</label>
+                <input type="date" id="Expiration" /><br />
+
+                <button>Submit</button>
+            </form>
+        </div>
+    </body>
+</html>
