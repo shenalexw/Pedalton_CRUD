@@ -15,7 +15,7 @@ CS 340 Database Project
 2. open dir in terminal and input the following
 ```
     npm install
-    npm run startDev
+    npm run devStart
 ```
 
 ## References
@@ -23,8 +23,9 @@ CS 340 Database Project
 - [Express Handlebars](https://www.npmjs.com/package/express-handlebars)
 - [Nodemon](https://www.npmjs.com/package/nodemon)
 - [OSU Node.js Starter Guide](https://github.com/osu-cs340-ecampus/nodejs-starter-app)
+- [dotenv](https://www.npmjs.com/package/dotenv)
 
 
 ## Author Info
 #### Alexander Shen - Developer
-#### Collin Sanders - Developer
+#### Collin Sidlers - Developer
