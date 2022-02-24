@@ -1,8 +1,8 @@
 # Pedalton CS 340 Project
 
 ## Table of Contents
-- [Abstract](#Abstract
-)- [How To Use](#how-to-use)
+- [Abstract](#Abstract)
+- [How To Use](#how-to-use)
 - [References](#references)
 - [Author(s)](#author-info)
 
