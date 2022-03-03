@@ -35,19 +35,23 @@
             <form id = "add-membership" method = "POST" action="memberships/add-membership" class="mb-3">
                 <h6>Add Membership</h6>
 
-                <div class="form-floating mb-3">
-                    <input
-                        type="number"
-                        name="addUserID"
-                        id="addUserID"
-                        class="form-control"
-                        placeholder="Enter first name"
-                        step="1"
-                        min="1"
-                    />
-                    <label for="userID" class="form-label">
+                <div class="mb-3">
+                    <label for="addUserID" class="form-label">
                         User ID
                     </label>
+                    <select
+                        name="addUserID"
+                        id="addUserID"
+                        class="form-select"
+                        required
+                    >
+                        <option value="" selected>
+                            Select a User ID
+                        </option>
+                        {{#each userIDs}}
+                            <option value={{this.userID}}>{{this.userID}}</option>
+                        {{/each}}
+                    </select>
                 </div>
 
                 <div class="form-floating mb-3">
@@ -69,6 +73,7 @@
                         id="addExpiration"
                         class="form-control"
                         placeholder="Datetime"
+                        required
                     />
                     <label for="addExpiration" class="form-label">
                         Expiration

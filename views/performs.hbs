@@ -46,9 +46,9 @@
                         class="form-select"
                     >
                         <option value="">Select Performs ID</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
+                        {{#each data}}
+                            <option value={{this.performsID}}>{{this.performsID}}</option>
+                        {{/each}}
                     </select>
                 </div>
 
@@ -60,36 +60,42 @@
             <form id = "add-perform" method = "POST" action="performs/add-perform" class="mb-3">
                 <h6>Add Performs Entry</h6>
 
-                <div class="form-floating mb-3">
-                    <input
-                        type="number"
-                        name="addUserID"
-                        id="addUserID"
-                        step="1"
-                        min="1"
-                        class="form-control"
-                        placeholder="User ID"
-                        required
-                    />
-                    <label for="userID" class="form-label">
+                <div class="mb-3">
+                    <label for="addUserID" class="form-label">
                         User ID
                     </label>
+                    <select
+                        name="addUserID"
+                        id="addUserID"
+                        class="form-select"
+                        required
+                    >
+                        <option value="" selected>
+                            Select a User ID
+                        </option>
+                        {{#each userIDs}}
+                            <option value={{this.userID}}>{{this.userID}}</option>
+                        {{/each}}
+                    </select>
                 </div>
 
-                <div class="form-floating mb-3">
-                    <input
-                        type="number"
-                        name="addVideoID"
-                        id="addVideoID"
-                        step="1"
-                        min="1"
-                        class="form-control"
-                        placeholder="Video ID"
-                        required
-                    />
-                    <label for="videoID" class="form-label">
+                <div class="mb-3">
+                    <label for="addVideoID" class="form-label">
                         Video ID
                     </label>
+                    <select
+                        name="addVideoID"
+                        id="addVideoID"
+                        class="form-select"
+                        required
+                    >
+                        <option value="" selected>
+                            Select a Video ID
+                        </option>
+                        {{#each videoIDs}}
+                            <option value={{this.videoID}}>{{this.videoID}}</option>
+                        {{/each}}
+                    </select>
                 </div>
 
                 <div class="form-floating mb-3">
