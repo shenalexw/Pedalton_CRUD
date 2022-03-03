@@ -57,17 +57,19 @@
         </div>
 
         <div class="col-6">
-            <form action="" class="mb-3">
+            <form id = "add-perform" method = "POST" action="performs/add-perform" class="mb-3">
                 <h6>Add Performs Entry</h6>
 
                 <div class="form-floating mb-3">
                     <input
                         type="number"
-                        id="userID"
+                        name="addUserID"
+                        id="addUserID"
                         step="1"
                         min="1"
                         class="form-control"
                         placeholder="User ID"
+                        required
                     />
                     <label for="userID" class="form-label">
                         User ID
@@ -77,11 +79,13 @@
                 <div class="form-floating mb-3">
                     <input
                         type="number"
-                        id="videoID"
+                        name="addVideoID"
+                        id="addVideoID"
                         step="1"
                         min="1"
                         class="form-control"
                         placeholder="Video ID"
+                        required
                     />
                     <label for="videoID" class="form-label">
                         Video ID
@@ -91,11 +95,13 @@
                 <div class="form-floating mb-3">
                     <input
                         type="number"
-                        id="completed"
+                        name="addCompleted"
+                        id="addCompleted"
                         step="1"
                         min="0"
                         class="form-control"
                         placeholder="0"
+                        required
                     />
                     <label for="completed" class="form-label">
                         Completed
@@ -107,9 +113,10 @@
                         Bookmarked
                     </label>
                     <select
-                        id="bookmarked"
-                        name="bookmarked"
+                        id="addBookmarked"
+                        name="addBookmarked"
                         class="form-select"
+                        required
                     >
                         <option value="true">True</option>
                         <option value="false">False</option>
@@ -122,8 +129,8 @@
                     </label>
                     <input
                         type="datetime-local"
-                        id="timeCompleted"
-                        name="timeCompleted"
+                        id="addTimeCompleted"
+                        name="addTimeCompleted"
                         class="form-control"
                     />
                 </div>
