@@ -5,9 +5,33 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
     let query1 = "SELECT * FROM Performs;"; // Define our query
+    let query2 = "SELECT userID FROM Users;";
+    let query3 = "SELECT videoID FROM Videos;";
+
+    let performsData;
+    let userIDs;
+    let videoIDs;
+    
+    // Query 1 will get all rows from Performs
     db.pool.query(query1, function (error, rows, fields) {
-        // Execute the query
-        res.render("performs", { data: rows }); // Render the index.hbs file, and also send the renderer
+        performsData = rows;
+
+        // Query2 will get all userIDs from Users
+        db.pool.query(query2, function (error, rows, fields) {
+            userIDs = rows;
+
+            // Query 3 will get all videoIDs from Videos
+            db.pool.query(query3, function (error, rows, fields) {
+                videoIDs = rows;
+
+                // Sort the userIDs and videoIDs so they are in ascending order
+                userIDs.sort((a, b) => a.userID - b.userID)
+                videoIDs.sort((a, b) => a.videoID - b.videoID)
+
+                // Execute the query
+                res.render("performs", { data: performsData, userIDs, videoIDs }); // Render the index.hbs file, and also send the renderer
+            });
+        });
     });
 });
 

@@ -6,8 +6,25 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
   let query1 = "SELECT * FROM Memberships;";               // Define our query
+  let query2 = "SELECT userID FROM Users;";
+
+  let membershipData;
+  let userIDs;
+
+  // Query 1 will get all rows from the Memberships table
   db.pool.query(query1, function(error, rows, fields){    // Execute the query
-    res.render('memberships', {data: rows});                  // Render the index.hbs file, and also send the renderer
+    membershipData = rows;
+
+    // Query 2 will get the userIDs from the Users table to dynamically populate the User ID input in Add Membership form
+    db.pool.query(query2, function(error, rows, fields){
+      userIDs = rows;
+
+      // Sort the userIDs so they are in ascending order
+      userIDs.sort((a, b) => a.userID - b.userID)
+
+      // Send membership rows and userIDs to the memberships view
+      res.render('memberships', {data: membershipData, userIDs: userIDs});                  // Render the index.hbs file, and also send the renderer
+    })
   })    
 })
 

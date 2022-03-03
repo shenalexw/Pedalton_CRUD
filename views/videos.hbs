@@ -38,19 +38,22 @@
             <form id = "add-video" method = "POST" action="videos/add-video">
                 <h6>Add Video</h6>
 
-                <div class="form-floating mb-3">
-                    <input
-                        type="number"
-                        name="addInstructorID"
-                        id="addInstructorID"
-                        step="1"
-                        min="1"
-                        class="form-control"
-                        placeholder="Instructor ID"
-                    />
-                    <label for="instructorID" class="form-label">
+                <div class="mb-3">
+                    <label for="addInstructorID" class="form-label">
                         Instructor ID
                     </label>
+                    <select
+                        name="addInstructorID"
+                        id="addInstructorID"
+                        class="form-select"
+                    >
+                        <option value="" selected>
+                            Select an Instructor ID
+                        </option>
+                        {{#each instructorIDs}}
+                            <option value={{this.instructorID}}>{{this.instructorID}}</option>
+                        {{/each}}
+                    </select>
                 </div>
 
                 <div class="form-floating mb-3">
@@ -118,7 +121,7 @@
                         required
                     />
                     <label for="duration" class="form-label">
-                        Duration
+                        Duration (seconds)
                     </label>
                 </div>
 
@@ -130,30 +133,42 @@
             <form action="">
                 <h6>Update InstructorID</h6>
 
-                <div class="form-floating mb-3">
-                    <input
-                        type="text"
-                        id="name"
-                        class="form-control"
-                        placeholder="Name"
-                    />
-                    <label for="name" class="form-label">
+                <div class="mb-3">
+                    <label for="updateVideoID" class="form-label">
                         Video ID
                     </label>
+                    <select
+                        name="updateVideoID"
+                        id="updateVideoID"
+                        class="form-select"
+                        required
+                    >
+                        <option value="" selected>
+                            Select a Video ID
+                        </option>
+                        {{#each data}}
+                            <option value={{this.videoID}}>{{this.videoID}}</option>
+                        {{/each}}
+                    </select>
                 </div>
 
-                <div class="form-floating mb-3">
-                    <input
-                        type="number"
-                        id="updateInstructorID"
-                        step="1"
-                        min="1"
-                        class="form-control"
-                        placeholder="Instructor ID"
-                    />
+                <div class="mb-3">
                     <label for="updateInstructorID" class="form-label">
-                        Instructor ID
+                        New Instructor ID
                     </label>
+                    <select
+                        name="updateInstructorID"
+                        id="updateInstructorID"
+                        class="form-select"
+                        required
+                    >
+                        <option value="" selected>
+                            Select an Instructor ID
+                        </option>
+                        {{#each instructorIDs}}
+                            <option value={{this.instructorID}}>{{this.instructorID}}</option>
+                        {{/each}}
+                    </select>
                 </div>
 
                 <button class="btn btn-primary">Update</button>
