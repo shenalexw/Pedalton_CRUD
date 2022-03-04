@@ -130,7 +130,7 @@
         </div>
 
         <div class="col-6">
-            <form action="">
+            <form id="update-video" action="/videos/update-video" method="POST">
                 <h6>Update InstructorID</h6>
 
                 <div class="mb-3">
@@ -168,6 +168,7 @@
                         {{#each instructorIDs}}
                             <option value={{this.instructorID}}>{{this.instructorID}}</option>
                         {{/each}}
+                        <option value="remove">Remove current Instructor ID</option>
                     </select>
                 </div>
 

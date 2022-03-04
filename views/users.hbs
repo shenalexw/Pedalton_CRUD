@@ -50,6 +50,33 @@
                 <button class="btn btn-primary">Filter</button>
             </form>
         </div>
+
+        <div class="col-6">
+            <form id="update-user-form" action="update-user" method="GET" class="mb-3">
+                <h6>Update User</h6>
+
+                <div class="mb-3">
+                    <label for="userID" class="form-label" hidden>
+                        User ID
+                    </label>
+                    <select
+                        name="userID"
+                        id="userID"
+                        class="form-select"
+                        required
+                    >
+                        <option value="" selected>
+                            Select a User ID
+                        </option>
+                        {{#each initialData}}
+                            <option value={{this.userID}}>{{this.userID}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+
+                <button class="btn btn-primary">Update</button>
+            </form>
+        </div>
     </div>
 
     <div class="row">
@@ -101,67 +128,6 @@
             </form>
         </div>
 
-        <div class="col-6">
-            <form action="" class="mb-3">
-                <h6>Update User</h6>
-
-                <div class="mb-3">
-                    <label for="userID" class="form-label">
-                        User ID
-                    </label>
-                    <select
-                        name="userID"
-                        id="userID"
-                        class="form-select"
-                    >
-                        <option value="" selected>
-                            Select a User ID
-                        </option>
-                        {{#each initialData}}
-                            <option value={{this.userID}}>{{this.userID}}</option>
-                        {{/each}}
-                    </select>
-                </div>
-
-                <div class="form-floating mb-3">
-                    <input
-                        type="text"
-                        id="updateFirstName"
-                        class="form-control"
-                        placeholder="Enter first name"
-                    />
-                    <label for="updateFirstName" class="form-label">
-                        First Name
-                    </label>
-                </div>
-
-                <div class="form-floating mb-3">
-                    <input
-                        type="text"
-                        id="updateLastName"
-                        class="form-control"
-                        placeholder="Enter last name"
-                    />
-                    <label for="updateLastName" class="form-label">
-                        Last Name
-                    </label>
-                </div>
-
-                <div class="form-floating mb-3">
-                    <input
-                        type="email"
-                        id="updateEmail"
-                        class="form-control"
-                        placeholder="Enter email"
-                    />
-                    <label for="updateEmail" class="form-label">
-                        Email Address
-                    </label>
-                </div>
-
-                <button class="btn btn-primary">Update</button>
-            </form>
-        </div>
     </div>
 </div>
 <script

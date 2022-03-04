@@ -65,4 +65,30 @@ router.post('/add-video', function(req, res){
   })
 })
 
+router.post('/update-video', function(req, res){
+  let data = req.body
+  let updateQuery;
+
+  // If body included a deleteEntry property, build the appropriate SQL query, otherwise redirect back to /performs
+  if (data.updateInstructorID && data.updateVideoID) {
+    updateQuery = `UPDATE Videos SET instructorID=${data.updateInstructorID === 'remove' ? 'NULL' : data.updateInstructorID} WHERE videoID='${data.updateVideoID}';`
+  } else {
+    console.log("updateVideoID and updateInstructorID must be provided.")
+    res.status(400).send()
+  }
+
+  db.pool.query(updateQuery, function (error, rows, fields) {
+    // Check to see if there was an error
+    if (error) {
+        // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+        console.log(error);
+        res.status(400).send()
+    }
+    else {
+      // If there was no error, we redirect back
+      res.redirect("/videos")
+    }
+  });
+})
+
 module.exports = router;
