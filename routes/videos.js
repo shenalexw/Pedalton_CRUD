@@ -1,8 +1,3 @@
-// Citation for the seconds-to-time converter
-// Date: 3/3/22
-// Adapted from:
-// https://stackoverflow.com/questions/1322732/convert-seconds-to-hh-mm-ss-with-javascript
-
 // Connect to Database
 var db = require('../database/db-connector')
 
@@ -28,7 +23,14 @@ router.get("/", (req, res) => {
       // Sort the instructorIDs so they are in ascending order
       instructorIDs.sort((a, b) => a.instructorID - b.instructorID)
 
-      res.render('videos', {data: videoData, instructorIDs: instructorIDs});                  // Render the index.hbs file, and also send the renderer
+      let columnNames;
+      // Generate array of column names and change duration to duration (seconds)
+      if (videoData.length > 0) {
+        columnNames = Object.keys(videoData[0])
+        columnNames[6] = 'duration (seconds)'
+      }
+
+      res.render('videos', {data: videoData, instructorIDs, columnNames});                  // Render the index.hbs file, and also send the renderer
     })
   })  
 })
@@ -42,11 +44,8 @@ router.post('/add-video', function(req, res){
     instructorID = data['addInstructorID'];
   }
 
-  // Converts user-inputted seconds into a time string (hh:mm:ss)
-  const convertedDuration = new Date(data['addDuration'] * 1000).toISOString().slice(11, 19);
-
   // Create the query and run it on the database
-  query1 = `INSERT INTO Videos(instructorID, name, description, type, difficulty, duration) VALUES (NULLIF('${instructorID}', ''), '${data['addName']}', '${data['addDescription']}', '${data['addType']}', '${data['addDifficulty']}', '${convertedDuration}')`;
+  query1 = `INSERT INTO Videos(instructorID, name, description, type, difficulty, duration) VALUES (NULLIF('${instructorID}', ''), '${data['addName']}', '${data['addDescription']}', '${data['addType']}', '${data['addDifficulty']}', '${data['addDuration']}')`;
   db.pool.query(query1, function(error, rows, fields){
 
       // Check to see if there was an error
