@@ -63,4 +63,32 @@ router.post("/add-perform", function (req, res) {
         }
     });
 });
+
+router.post("/delete-perform", function (req, res) {
+  // Capture the incoming data and parse it back to a JS object
+  let data = req.body;
+  let deleteQuery;
+
+  // If body included a deleteEntry property, build the appropriate SQL query, otherwise redirect back to /performs
+  if (data.deleteEntry) {
+    deleteQuery = `DELETE FROM Performs WHERE performsID='${data.deleteEntry}';`
+  } else {
+    console.log("No performs entry ID provided to delete.")
+    res.status(400).send()
+  }
+
+  db.pool.query(deleteQuery, function (error, rows, fields) {
+    // Check to see if there was an error
+    if (error) {
+        // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+        console.log(error);
+        res.status(400).send()
+    }
+    else {
+      // If there was no error, we redirect back
+      res.redirect("/performs")
+    }
+  });
+})
+
 module.exports = router;

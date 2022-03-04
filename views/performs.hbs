@@ -34,7 +34,7 @@
 
     <div class="row">
         <div class="col-6">
-            <form action="" class="mb-3">
+            <form action="performs/delete-perform" method="POST" class="mb-3">
                 <div class="mb-3">
                     <h6></h6>
                     <label for="deleteEntry" class="form-label h6">
@@ -44,6 +44,7 @@
                         name="deleteEntry"
                         id="deleteEntry"
                         class="form-select"
+                        required
                     >
                         <option value="">Select Performs ID</option>
                         {{#each data}}
