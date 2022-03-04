@@ -21,6 +21,7 @@ app.set('view engine', '.hbs');                 // Tell express to use the handl
 
 // Routers
 const userRouter = require('./routes/users')
+const updateUserRouter = require('./routes/update-user')
 const instructorRouter = require('./routes/instructors')
 const membershipRouter = require('./routes/memberships')
 const performRouter = require('./routes/performs')
@@ -34,6 +35,7 @@ app.get('/', function(req, res)
 
 // Use routes
 app.use('/users', userRouter)
+app.use('/update-user', updateUserRouter)
 app.use('/instructors', instructorRouter)
 app.use('/memberships', membershipRouter)
 app.use('/performs', performRouter)
